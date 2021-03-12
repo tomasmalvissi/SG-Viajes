@@ -52,22 +52,5 @@ namespace SGVIAJES.DATA
 
         public float Total { get; set; }
 
-        public float CalcularEspera()
-        {
-            float espera = (MinEsper * PrecioEspera);
-            return espera;
-        }
-
-        public float CalcularImporte()
-        {
-            float importe = (KM * PrecioKM) + ImporteEsp;
-            return importe;
-        }
-
-        public float CalcularTotal()
-        {
-            float total = Importe - (PeajeEst - GNC - Nafta);
-            return total;
-        }
     }
 }

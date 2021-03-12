@@ -32,6 +32,9 @@ namespace SGVIAJES.WEB.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(Viaje viaje)
         {
+            viaje.ImporteEsp = viaje.MinEsper * viaje.PrecioEspera;
+            viaje.Importe = (viaje.KM * viaje.PrecioKM) + viaje.ImporteEsp;
+            viaje.Total = viaje.Importe - (viaje.PeajeEst - viaje.GNC - viaje.Nafta);
             if (ModelState.IsValid)
             {
                 _context.Viajes.Add(viaje);
