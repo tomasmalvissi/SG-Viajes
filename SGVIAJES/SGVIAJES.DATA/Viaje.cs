@@ -13,6 +13,7 @@ namespace SGVIAJES.DATA
         public int NroViaje { get; set; }
 
         [Display(Name = "Fecha del Viaje")]
+        [DataType(DataType.Date)]
         public DateTime FechaViaje { get; set; }
 
         public string Empresa { get; set; }

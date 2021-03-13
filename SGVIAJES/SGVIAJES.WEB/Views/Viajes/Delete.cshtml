@@ -1,0 +1,109 @@
+﻿@model SGVIAJES.DATA.Viaje
+@{
+    ViewData["Title"] = "Eliminar Viaje";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h3>¿Está seguro que quiere eliminar el Viaje Nro: @Model.NroViaje.ToString()?</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-10">
+            <form method="post" asp-action="DeleteViaje">
+
+                <input type="hidden" asp-for="Id" />
+
+                <div class="form-group">
+                    <input type="submit" value="Eliminar Viaje" class="btn btn-danger" />
+                </div>
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="NroViaje" class="control-label"></label>
+                    <input asp-for="NroViaje" class="form-control" disabled />
+                    <span asp-validation-for="NroViaje" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FechaViaje" class="control-label"></label>
+                    <input asp-for="FechaViaje" class="form-control" disabled />
+                    <span asp-validation-for="FechaViaje" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Empresa" class="control-label"></label>
+                    <input asp-for="Empresa" class="form-control" disabled />
+                    <span asp-validation-for="Empresa" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Origen" class="control-label"></label>
+                    <input asp-for="Origen" class="form-control" disabled />
+                    <span asp-validation-for="Origen" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Destino" class="control-label"></label>
+                    <input asp-for="Destino" class="form-control" disabled />
+                    <span asp-validation-for="Destino" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="KM" class="control-label"></label>
+                    <input asp-for="KM" class="form-control" disabled />
+                    <span asp-validation-for="KM" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PrecioKM" class="control-label"></label>
+                    <input asp-for="PrecioKM" class="form-control" disabled />
+                    <span asp-validation-for="PrecioKM" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MinEsper" class="control-label"></label>
+                    <input asp-for="MinEsper" class="form-control" disabled />
+                    <span asp-validation-for="MinEsper" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PrecioEspera" class="control-label"></label>
+                    <input asp-for="PrecioEspera" class="form-control" disabled />
+                    <span asp-validation-for="PrecioEspera" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PeajeEst" class="control-label"></label>
+                    <input asp-for="PeajeEst" class="form-control" disabled />
+                    <span asp-validation-for="PeajeEst" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="GNC" class="control-label"></label>
+                    <input asp-for="GNC" class="form-control" disabled />
+                    <span asp-validation-for="GNC" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Nafta" class="control-label"></label>
+                    <input asp-for="Nafta" class="form-control" disabled />
+                    <span asp-validation-for="Nafta" class="text-danger"></span>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+
