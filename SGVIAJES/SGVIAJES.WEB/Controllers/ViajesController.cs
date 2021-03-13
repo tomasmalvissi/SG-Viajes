@@ -16,9 +16,18 @@ namespace SGVIAJES.WEB.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string filtro)
         {
+            ViewData["Filtro"] = filtro;
             IEnumerable<Viaje> listViajes = _context.Viajes;
+            if (!String.IsNullOrWhiteSpace(filtro))
+            {
+                listViajes = _context.Viajes.Where(v => v.NroViaje.ToString().Contains(filtro) || 
+                v.FechaViaje.ToString().Contains(filtro) || v.Empresa.Contains(filtro) || 
+                v.Origen.Contains(filtro) || v.Destino.Contains(filtro) || 
+                v.Total.ToString().Contains(filtro));
+            }
+            
             return View(listViajes);
         }
 

@@ -9,10 +9,10 @@ namespace SGVIAJES.DATA
         public int Id { get; set; }
 
         [Required]
-        [Display(Name = "Numero de Viaje")]
+        [Display(Name = "Numero")]
         public int NroViaje { get; set; }
 
-        [Display(Name = "Fecha del Viaje")]
+        [Display(Name = "Fecha")]
         [DataType(DataType.Date)]
         public DateTime FechaViaje { get; set; }
 
@@ -30,14 +30,14 @@ namespace SGVIAJES.DATA
         public float PrecioKM { get; set; }
 
         [Required]
-        [Display(Name = "Minutos de espera")]
+        [Display(Name = "Espera")]
         public float MinEsper { get; set; }
 
         [Required]
         [Display(Name = "Precio del minuto de espera")]
         public float PrecioEspera { get; set; }
 
-        [Display(Name = "Peajes y/o Estacionamiento")]
+        [Display(Name = "Peajes y/o Estac")]
         public float PeajeEst { get; set; }
 
         [Required]
@@ -48,7 +48,7 @@ namespace SGVIAJES.DATA
 
         public float Importe { get; set; }
 
-        [Display (Name = "Importe de espera")]
+        [Display (Name = "Total Espera")]
         public float ImporteEsp { get; set; }
 
         public float Total { get; set; }

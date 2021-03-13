@@ -18,12 +18,21 @@
 
     <div class="row">
         <div class="col-sm-6">
-            <h3>Viajes realizados.</h3>
+            <h1>Viajes realizados</h1>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-5 ml-auto">
             <a class="btn btn-success d-block" asp-action="Create" asp-controller="Viajes">Agregar</a>
         </div>
+        <div class="col-sm-5 ml-auto">
+            <form method="get" asp-action="Index">
+                <p>
+                    Filtre su viaje: <input type="text" name="filtro" value="@ViewData["Filtro"]" />
+                    <input type="submit" value="Buscar" class="btn btn-primary" />
+                </p>
+            </form>
+        </div>
     </div>
+
 
     <div class="row">
         @if (Model.Count() > 0)
@@ -44,7 +53,6 @@
                         <td>@Html.DisplayNameFor(v => v.Importe)</td>
                         <td>@Html.DisplayNameFor(v => v.ImporteEsp)</td>
                         <td>@Html.DisplayNameFor(v => v.Total)</td>
-                        <td>Acciones</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -66,6 +74,8 @@
                             <td>@item.Total</td>
                             <td>
                                 <a asp-controller="Viajes" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                            </td>
+                            <td>
                                 <a asp-controller="Viajes" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Eliminar</a>
                             </td>
                         </tr>
