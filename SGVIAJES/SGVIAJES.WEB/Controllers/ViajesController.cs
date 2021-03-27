@@ -128,5 +128,12 @@ namespace SGVIAJES.WEB.Controllers
 
             return View();
         }
+
+        //HTTP GET ESTADISTICAS PARA MOSTRAR VIEW
+        public IActionResult Estadisticas()
+        {
+            IEnumerable<Viaje> listViajes = _context.Viajes;
+            return View(listViajes);
+        }
     }
 }
