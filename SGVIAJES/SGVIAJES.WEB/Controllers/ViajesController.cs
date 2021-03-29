@@ -130,10 +130,13 @@ namespace SGVIAJES.WEB.Controllers
         }
 
         //HTTP GET ESTADISTICAS PARA MOSTRAR VIEW
-        public IActionResult Estadisticas()
+        public IActionResult Estadisticas(Viaje viaje)
         {
-            IEnumerable<Viaje> listViajes = _context.Viajes;
-            return View(listViajes);
+            //ver tema de filtrar por mes
+            viaje.KM = _context.Viajes.Sum(v => v.KM);
+
+            //tengo q retornar una lista
+            return View(viaje);
         }
     }
 }
