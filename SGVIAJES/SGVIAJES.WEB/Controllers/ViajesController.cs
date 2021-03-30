@@ -130,13 +130,24 @@ namespace SGVIAJES.WEB.Controllers
         }
 
         //HTTP GET ESTADISTICAS PARA MOSTRAR VIEW
-        public IActionResult Estadisticas(Viaje viaje)
+        public IActionResult Estadisticas(String filtro, Viaje viaje)
         {
-            //ver tema de filtrar por mes
+            List<Viaje> lista = new();
             viaje.KM = _context.Viajes.Sum(v => v.KM);
+            viaje.Nafta = _context.Viajes.Sum(v => v.Nafta);
+            viaje.GNC = _context.Viajes.Sum(v => v.GNC);
+            viaje.PeajeEst = _context.Viajes.Sum(v => v.PeajeEst);
+            viaje.MinEsper = _context.Viajes.Sum(v => v.MinEsper);
+            viaje.Importe = _context.Viajes.Sum(v => v.Importe);
+            viaje.Total = _context.Viajes.Sum(v => v.Total);
+            lista.Add(viaje);
+            ViewData["Filtro"] = filtro;
+            if (!String.IsNullOrWhiteSpace(filtro))
+            {
+                //lista = _context.Viajes.Where(v => v.FechaViaje.Month.ToString().Contains(filtro));
+            }
 
-            //tengo q retornar una lista
-            return View(viaje);
+            return View(lista);
         }
     }
 }

@@ -7,7 +7,16 @@
 <h1>Estadisticas</h1>
 
 
-<div id="container"></div>
+<div class="row">
+    <div class="col-sm-5 ml-auto">
+        <form method="get" asp-action="Estadisticas">
+            <p>
+                Filtre su viaje: <input type="text" name="filtro" value="@ViewData["Filtro"]" />
+                <input type="submit" value="Buscar" class="btn btn-primary" />
+            </p>
+        </form>
+    </div>
+</div>
 
 
 
@@ -18,14 +27,28 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
+                        <td>@Html.DisplayNameFor(v => v.FechaViaje)</td>
                         <td>@Html.DisplayNameFor(v => v.KM)</td>
+                        <td>@Html.DisplayNameFor(v => v.Nafta)</td>
+                        <td>@Html.DisplayNameFor(v => v.GNC)</td>
+                        <td>@Html.DisplayNameFor(v => v.PeajeEst)</td>
+                        <td>@Html.DisplayNameFor(v => v.MinEsper)</td>
+                        <td>@Html.DisplayNameFor(v => v.Importe)</td>
+                        <td>@Html.DisplayNameFor(v => v.Total)</td>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
                         <tr>
+                            <td>@item.FechaViaje.Month</td>
                             <td>@item.KM</td>
+                            <td>@item.Nafta</td>
+                            <td>@item.GNC</td>
+                            <td>@item.PeajeEst</td>
+                            <td>@item.MinEsper</td>
+                            <td>@item.Importe</td>
+                            <td>@item.Total</td>
                         </tr>
                     }
                 </tbody>

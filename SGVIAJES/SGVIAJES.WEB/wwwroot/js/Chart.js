@@ -5,9 +5,6 @@
         contentType: "application/json; charset:ufo-8",
         dataType: "json",
         url: "",
-        error: function () {
-            alert("Error al consultar los datos");
-        },
         success: function (data) {
             console.log(data);
             Grafica(data);
