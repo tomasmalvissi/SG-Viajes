@@ -22,12 +22,12 @@ namespace SGVIAJES.WEB.Controllers
             IEnumerable<Viaje> listViajes = _context.Viajes;
             if (!String.IsNullOrWhiteSpace(filtro))
             {
-                listViajes = _context.Viajes.Where(v => v.NroViaje.ToString().Contains(filtro) || 
-                v.FechaViaje.ToString().Contains(filtro) || v.Empresa.Contains(filtro) || 
-                v.Origen.Contains(filtro) || v.Destino.Contains(filtro) || 
+                listViajes = _context.Viajes.Where(v => v.NroViaje.ToString().Contains(filtro) ||
+                v.FechaViaje.ToString().Contains(filtro) || v.Empresa.Contains(filtro) ||
+                v.Origen.Contains(filtro) || v.Destino.Contains(filtro) ||
                 v.Total.ToString().Contains(filtro));
             }
-            
+
             return View(listViajes);
         }
 
@@ -133,18 +133,20 @@ namespace SGVIAJES.WEB.Controllers
         public IActionResult Estadisticas(String filtro, Viaje viaje)
         {
             List<Viaje> lista = new();
-            viaje.KM = _context.Viajes.Sum(v => v.KM);
+            string mesactual = DateTime.Now.Month.ToString();
+            //viaje.FechaViaje = _context.Viajes.Where(v => v.FechaViaje.Month.ToString().Contains(mesactual));
             viaje.Nafta = _context.Viajes.Sum(v => v.Nafta);
             viaje.GNC = _context.Viajes.Sum(v => v.GNC);
             viaje.PeajeEst = _context.Viajes.Sum(v => v.PeajeEst);
             viaje.MinEsper = _context.Viajes.Sum(v => v.MinEsper);
             viaje.Importe = _context.Viajes.Sum(v => v.Importe);
             viaje.Total = _context.Viajes.Sum(v => v.Total);
+            lista.Where(v => v.FechaViaje.Month.ToString().Contains(mesactual));
             lista.Add(viaje);
             ViewData["Filtro"] = filtro;
             if (!String.IsNullOrWhiteSpace(filtro))
             {
-                //lista = _context.Viajes.Where(v => v.FechaViaje.Month.ToString().Contains(filtro));
+                //viaje.FechaViaje.Month.ToString().Contains(filtro);
             }
 
             return View(lista);
